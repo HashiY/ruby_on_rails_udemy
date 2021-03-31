@@ -94,6 +94,26 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
+
+    # Remote multi-server automation tool
+  gem 'capistrano', '~> 3.16'
+  # Official Ruby on Rails specific tasks for Capistrano
+  gem 'capistrano-bundler', '~> 2.0'
+  # Bundler support for Capistrano 3.x
+  gem 'capistrano-rails', '~> 1.6'
+  # RVM support for Capistrano v3
+  gem 'capistrano-rvm'
+  # Unicorn for Capistrano v3
+  gem 'capistrano3-unicorn'
+end
+
+group :production do
+  # MySQL Adapter
+  #gem 'mysql2', '~> 0.4.4'
+    # Use Unicorn as the app server
+  gem 'unicorn'
+    # Mailgun's Official Ruby Library
+  gem 'mailgun-ruby', '~>1.2.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

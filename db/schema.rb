@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_231122) do
+ActiveRecord::Schema.define(version: 2021_03_31_003301) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_03_30_231122) do
     t.date "finish_date"
     t.text "description_md"
     t.text "description_short"
+    t.integer "status", default: 0
     t.index ["category_id"], name: "index_ads_on_category_id"
     t.index ["member_id"], name: "index_ads_on_member_id"
   end

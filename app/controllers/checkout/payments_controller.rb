@@ -5,7 +5,7 @@ class Checkout::PaymentsController < ApplicationController
     
         order = Order.create( ad: ad, buyer_id: current_member.id )
         order.waiting!
-    
+     
         render text: "Processando.... Pedido: #{order.status_i18n} - Anúncio: #{ad.status_i18n}"
     end
 end

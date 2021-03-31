@@ -36,9 +36,9 @@ class Ad < ActiveRecord::Base
 
   scope :random, ->(quantity) {
     if Rails.env.production?
-      limit(quantity).order("RAND()") # MySQL
+      limit(quantity).order("RAND()") # MySQL 
     else
-      limit(quantity).order("RANDOM()") # SQLite
+      limit(quantity).order("RANDOM()") # SQLite 
     end
   }
 

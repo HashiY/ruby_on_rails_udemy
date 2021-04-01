@@ -35,6 +35,8 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'ratyrate'
 gem 'rubocop-faker'
+# Biblioteca de integração em Ruby para o Pagseguro
+gem "pagseguro-oficial", "~> 2.5.0"
 
 gem 'rails-assets-bootstrap-markdown', source: 'https://rails-assets.org'
 gem 'rails-assets-marked', source: 'https://rails-assets.org'

@@ -155,6 +155,7 @@ GEM
       kaminari
       rails
     kgio (2.11.3)
+    lerolero_generator (1.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -214,6 +215,8 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.5)
@@ -389,6 +392,7 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   kaminari-i18n
+  lerolero_generator
   listen (>= 3.0.5, < 3.2)
   mailgun-ruby (~> 1.2.3)
   money-rails
@@ -396,6 +400,7 @@ DEPENDENCIES
   paperclip (~> 6.0.0)
   puma (~> 3.11)
   pundit
+  rack-cors
   rails (~> 5.2.4, >= 5.2.4.5)
   rails-assets-animate-css!
   rails-assets-bootbox!

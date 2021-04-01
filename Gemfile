@@ -29,6 +29,7 @@ gem 'paperclip', '~> 6.0.0'
 gem 'jquery-ui-rails'
 gem 'redcarpet'
 gem 'doctor_ipsum'
+gem 'lerolero_generator'
 gem 'friendly_id'
 gem 'wiselinks'
 gem 'kaminari'
@@ -86,6 +87,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'
   gem 'rails-erd'
+    # Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 group :development do

@@ -199,7 +199,17 @@ GEM
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
+    pdf-core (0.9.0)
     popper_js (1.16.0)
+    prawn (2.4.0)
+      pdf-core (~> 0.9.0)
+      ttfunk (~> 1.7)
+    prawn-rails (1.4.0)
+      prawn
+      prawn-table
+      railties (>= 3.1.0)
+    prawn-table (0.2.2)
+      prawn (>= 1.3.0, < 3.0.0)
     puma (3.12.6)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
@@ -328,6 +338,7 @@ GEM
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    ttfunk (1.7.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
@@ -385,6 +396,7 @@ DEPENDENCIES
   mailgun-ruby (~> 1.2.3)
   money-rails
   paperclip (~> 6.0.0)
+  prawn-rails
   puma (~> 3.11)
   pundit
   rails (~> 5.2.4, >= 5.2.4.5)

@@ -1,5 +1,7 @@
 web: rails s
 mailcatcher: mailcatcher -f -v
+sidekiq: bundle exec sidekiq -q default -q mailers
+
 rake db:migrate
 
 rake db:drop db:create db:migrate db:seed utils:generate_admins utils:generate_ads utils:generate_members

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_154951) do
+ActiveRecord::Schema.define(version: 2021_04_06_150853) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,9 +26,16 @@ ActiveRecord::Schema.define(version: 2021_03_23_154951) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.integer "role"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "admins_roles", id: false, force: :cascade do |t|
+    t.integer "admin_id"
+    t.integer "role_id"
+    t.index ["admin_id", "role_id"], name: "index_admins_roles_on_admin_id_and_role_id"
+    t.index ["admin_id"], name: "index_admins_roles_on_admin_id"
+    t.index ["role_id"], name: "index_admins_roles_on_role_id"
   end
 
   create_table "ads", force: :cascade do |t|
@@ -46,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_154951) do
     t.date "finish_date"
     t.text "description_md"
     t.text "description_short"
+    t.integer "status", default: 0
     t.index ["category_id"], name: "index_ads_on_category_id"
     t.index ["member_id"], name: "index_ads_on_member_id"
   end
@@ -108,6 +116,16 @@ ActiveRecord::Schema.define(version: 2021_03_23_154951) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "ad_id"
+    t.integer "status"
+    t.integer "buyer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ad_id"], name: "index_orders_on_ad_id"
+    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
+  end
+
   create_table "overall_averages", force: :cascade do |t|
     t.string "rateable_type"
     t.integer "rateable_id"
@@ -150,6 +168,17 @@ ActiveRecord::Schema.define(version: 2021_03_23_154951) do
     t.datetime "updated_at", null: false
     t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
     t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.integer "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], name: "index_roles_on_name"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
 end

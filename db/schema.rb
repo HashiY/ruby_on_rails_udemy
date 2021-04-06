@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2021_04_06_150853) do
     t.date "finish_date"
     t.text "description_md"
     t.text "description_short"
-    t.integer "status", default: 0
     t.index ["category_id"], name: "index_ads_on_category_id"
     t.index ["member_id"], name: "index_ads_on_member_id"
   end
@@ -114,16 +113,6 @@ ActiveRecord::Schema.define(version: 2021_04_06_150853) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer "ad_id"
-    t.integer "status"
-    t.integer "buyer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ad_id"], name: "index_orders_on_ad_id"
-    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
   end
 
   create_table "overall_averages", force: :cascade do |t|

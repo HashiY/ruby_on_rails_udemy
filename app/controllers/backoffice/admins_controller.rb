@@ -15,17 +15,18 @@ class Backoffice::AdminsController < BackofficeController
   end
 
   def create
-    @admin = Admin.create(params_admin)
+    @admin = Admin.new(params_admin)
     update_roles
 
-    unless @admin.errors.any?
-      redirect_to backoffice_categories_path, notice: I18n.t('messages.created_with', item: @admin.email)
+    if @admin.save
+      redirect_to backoffice_admins_path, notice: I18n.t('messages.created_with', item: @admin.name)
     else
       render :new
     end
   end
 
   def edit
+    # Uses the before_action to set the admin.
   end
 
   def update
@@ -51,6 +52,7 @@ class Backoffice::AdminsController < BackofficeController
   end
 
   private
+
     def remove_all_roles
       Role.availables.each do |role|
         @admin.remove_role(role)
@@ -86,5 +88,5 @@ class Backoffice::AdminsController < BackofficeController
       params[:admin][:password].blank? &&
       params[:admin][:password_confirmation].blank?
     end
-
+  
 end

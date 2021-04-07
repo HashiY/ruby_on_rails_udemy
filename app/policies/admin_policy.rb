@@ -1,7 +1,7 @@
 class AdminPolicy < ApplicationPolicy
 
   def new?
-    #user.full_access?
+    # user.full_access?
     user.has_role? Role.availables[0] # full_access
   end
 

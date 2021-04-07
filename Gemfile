@@ -35,7 +35,7 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'ratyrate'
 gem 'rubocop-faker'
-gem 'rolify'
+gem 'rolify', '5.1.0'
 
 gem 'rails-assets-bootstrap-markdown', source: 'https://rails-assets.org'
 gem 'rails-assets-marked', source: 'https://rails-assets.org'

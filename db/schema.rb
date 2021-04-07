@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 2021_03_31_003301) do
   create_table "profile_members", force: :cascade do |t|
     t.string "first_name"
     t.string "second_name"
-    t.date "birthdaye"
+    t.date "birthdate"
     t.integer "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

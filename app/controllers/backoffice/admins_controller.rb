@@ -55,7 +55,7 @@ class Backoffice::AdminsController < BackofficeController
 
     def params_admin
       if password_blank?
-        params[:admin].except!(:password, :password_confirmation)
+        params[:admin].except(:password, :password_confirmation)
       end
 
       if @admin.blank?
@@ -69,5 +69,5 @@ class Backoffice::AdminsController < BackofficeController
       params[:admin][:password].blank? &&
       params[:admin][:password_confirmation].blank?
     end
-
+    
 end
